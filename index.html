@@ -152,6 +152,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-算法第四版：图论（2）—有向图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/27/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%882%EF%BC%89%E2%80%94%E6%9C%89%E5%90%91%E5%9B%BE/">算法第四版：图论（2）—有向图</a>
+    </h1>
+  
+
+        
+        <a href="/2021/08/27/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%882%EF%BC%89%E2%80%94%E6%9C%89%E5%90%91%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2021-08-27T00:34:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-有向图"><a href="#1-有向图" class="headerlink" title="1.有向图"></a>1.有向图</h1><h2 id="1-1-构造有向图"><a href="#1-1-构造有向图" class="headerlink" title="1.1. 构造有向图"></a>1.1. 构造有向图</h2><p>&emsp;&emsp;有向图与无向图在定义上的区别仅在于其边具有单向性。所以我们的邻接表数组结构仍然适用，原有的代码只需要在addEdge中删去添加逆向边的部分即可。<br>&emsp;&emsp;上面的代码就不重复介绍了，这里介绍我们给有向图新添加的功能，即取其反向图，名为reverse()方法。这个方法对于有向图处理很管用，它可以辅助用例找出指向每个顶点的所有边。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Digraph <span class="title">reverse</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">Digraph <span class="title">R</span><span class="params">(V)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; V; v++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> w : <span class="built_in">Getadj</span>(v))</span><br><span class="line">            <span class="built_in">addEdge</span>(w, v);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> R;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-算法部分"><a href="#2-算法部分" class="headerlink" title="2. 算法部分"></a>2. 算法部分</h1><h2 id="2-1-可达性和寻路"><a href="#2-1-可达性和寻路" class="headerlink" title="2.1. 可达性和寻路"></a>2.1. 可达性和寻路</h2><p>&emsp;&emsp;针对有向图，这类算法可以应用在更多的问题上，比如多点可达性可以对应Java的内存管理系统上。这部分的算法和无向图中的代码相同，dfs和bfs是一种通用算法，所以这里我们略过它的讲解，详情参考我的另一篇《博客算法第四版：图论（1）—无向图》。</p>
+<h2 id="2-2-有向环的检测"><a href="#2-2-有向环的检测" class="headerlink" title="2.2. 有向环的检测"></a>2.2. 有向环的检测</h2><p>&emsp;&emsp;有向环的检测对于实际应用很重要，许多问题和算法的前提都是不含有有向环。当然检测出所有的有向环，仍然是一个有挑战的问题，实际应用中我们只关注其中一小部分或者存不存在。<br>&emsp;&emsp;我们在有向图中仍然可以使用dfs来解决检查有向环的问题。DFS的递归调用对应了栈的数据结构，这里为了方便记录调用，我们增加一个栈<code>bool onStack[V]</code>随着调用出入元素，只要DFS访问到已被标记并且在调用栈中的顶点就说明有环存在,用<code>Stack&lt;int&gt; cycle</code>表示环上的顶点。大部分代码与无向图中的相同。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(Digraph G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    onStack[v] = <span class="literal">true</span>;</span><br><span class="line">    marked[v] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> w : <span class="built_in">Getadj</span>(v))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">hasCycle</span>())</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!marked[w])</span><br><span class="line">        &#123;</span><br><span class="line">            edgeTo[w] = v;</span><br><span class="line">            <span class="built_in">dfs</span>(G, w);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(onStack[w])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> x = v; x != w; x = edgeTo[x])</span><br><span class="line">                cycle.<span class="built_in">push</span>(x);</span><br><span class="line">            cycle.<span class="built_in">push</span>(w);</span><br><span class="line">            cycle.<span class="built_in">push</span>(v);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    onStack[v] = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-拓扑排序"><a href="#2-2-拓扑排序" class="headerlink" title="2.2. 拓扑排序"></a>2.2. 拓扑排序</h2><p>&emsp;&emsp;拓扑排序在实际生活中有很多应用，例如在规划课程时，不同的课程有不同的前置课程要求，有不同的优先级顺序，让其能够合理的安排，满足所有前置关系，就是一种拓扑排序问题。<br>&emsp;&emsp;拓扑排序定义为对一幅有向图的所有顶点进行排序，使得所有有向边均从排前面的元素指向排后面的元素。而且只有有向无环图（DAG）能够进行拓扑排序。<br>&emsp;&emsp;实现拓扑排序，只需要在基础的DFS中添加一行代码就行。其原理是在DFS的递归调用之后将当前顶点压入栈，就能得到顶点的逆后序排列，即是拓扑排序。<br>&emsp;&emsp;<font face="黑体">证明如下：</font><br>&emsp;&emsp;对于任意一个顶点关系v→w，在对v调用DFS过程中，有以下三种情况：<br>&emsp;&emsp;1.对w的DFS调用已经结束了，此时的w是被标记状态。<br>&emsp;&emsp;2.w未被标记，接下来会对其调用DFS。<br>&emsp;&emsp;3.对w的DFS调用了但未结束。<br>&emsp;&emsp;我们知道在有向无环图中，如果出现第三种情况，意味着之前有w→v，那么加上这里的v→w，成环了，矛盾。所以只有前两种情况，那么w的调用一定会先于v结束，那么逆后序排列中，v一定在w之前，满足要求，证毕。 </p>
+<p>相关代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(Digraph G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    marked[v] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> w : <span class="built_in">Getadj</span>(v))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!marked[w])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">dfs</span>(G, w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    reversePost.<span class="built_in">push</span>(v);    <span class="comment">//储存得到的逆后序排列顶点用的栈</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-有向图的强连通性"><a href="#2-3-有向图的强连通性" class="headerlink" title="2.3. 有向图的强连通性"></a>2.3. 有向图的强连通性</h2><p>&emsp;&emsp;在无向图中谈论的连通分量，用DFS可以简单快速的解决问题，但是对于有向图不能，两个顶点之间相互可达和单向可达以及不可达都有可能出现，单独的DFS只能保证两个顶点一个可达另一个。对于顶点间相互可达，被称作为强连通，其集合构成强连通分量。    </p>
+<h3 id="2-3-1-kosaraju算法介绍与实现"><a href="#2-3-1-kosaraju算法介绍与实现" class="headerlink" title="2.3.1. kosaraju算法介绍与实现"></a>2.3.1. kosaraju算法介绍与实现</h3><p>&emsp;&emsp;如何找出一幅有向图中的强连通分量？这就要引出kosaraju算法，它十分简洁但理解起来并不容易。证明我们放在代码后面，先讲解算法本身。算法内容如下：<br>&emsp;&emsp;<font face="黑体">1.获取图的反向图的顶点的DFS调用的逆后序排列。<br>&emsp;&emsp;2.对原图的顶点按照刚才得到的排列顺序调用DFS。<br>&emsp;&emsp;3.在同一个DFS的递归调用中访问到的顶点都在同一个强连通分量中。</font>   </p>
+<p>&emsp;&emsp;现在我们把获得各种顶点排序的方法封装起来成DepthFirstOrder类，它可以提供得到顶点逆后序排列，包括前序排列，后序排列。利用这个类，得到的kosaraju算法代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">kosaraju</span><span class="params">(Digraph G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">DepthFirstOrder <span class="title">order</span><span class="params">(G.reverse())</span></span>; <span class="comment">//反向图的各种顶点排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> s : order.<span class="built_in">reversePost</span>())    <span class="comment">//逆后序调用dfs</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!marked[s])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">dfs</span>(G, s);</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(Digraph G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    marked[v] = <span class="literal">true</span>;</span><br><span class="line">    id[v] = count;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> w : <span class="built_in">Getadj</span>(v))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!marked[w])</span><br><span class="line">            <span class="built_in">dfs</span>(G, w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-2-kosaraju算法证明"><a href="#2-3-2-kosaraju算法证明" class="headerlink" title="2.3.2. kosaraju算法证明"></a>2.3.2. kosaraju算法证明</h3><p>&emsp;&emsp;1.结合代码来看，首先我们先证明在<code>void kosaraju(Digraph G)</code>中for循环里调用dfs(G, s)时，所有的与s强连通的顶点都能被访问到。利用反证法，假设有与之强连通的点v没有被访问到，那么由于存在s到v路径，所以一定是因为for循环调用dfs(G, s)之前v已经被调用过且被标记，但是由于也存在v到s的路径，所以在这种情况下，s也一定被调用且标记过，那么for循环就不可能调用dfs(G, s)，矛盾。<br>&emsp;&emsp;2.再接下来，证明dfs(G, s)访问的顶点与s都是强连通的。首先，如果有一个顶点v被这次调用访问到了，则说明首先有s→v的路径。然后，因为目前情况是从s访问到了v，所以不可能在dfs(G, s)调用之前调用过dfs(G, v)，换句话说调用的顺序是先s，再v，也就意味着反向图的逆后序中是先s后v。那么回到<code>DepthFirstOrder order(G.reverse())</code>中，要如何的调用关系才会使得逆后序如此？只有v的dfs调用先于s的dfs调用结束才会实现这样的逆后序排列。这样的话只有两种情形，一种是v的调用结束才调用s,另一种是s的调用中调用了v的调用。由于反向图中必定有v→s的路径，所以排除第一种情形。第二种情况下，则推出反向图有s→v路径，同时也就说明正向图有v→s路径，则s和v强连通，证毕。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/27/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%882%EF%BC%89%E2%80%94%E6%9C%89%E5%90%91%E5%9B%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-算法第四版：图论（1）-无向图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
