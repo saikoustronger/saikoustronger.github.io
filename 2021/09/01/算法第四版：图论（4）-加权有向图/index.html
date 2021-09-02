@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | The blog of Endless Void</title>
+  <title>算法第四版：图论（4）- 加权有向图 | The blog of Endless Void</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="The blog of Endless Void">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="1. 加权有向图1.1. 最短路径问题&amp;emsp;&amp;emsp;加权有向图的边有了方向性，我们在这个模型下通常比较关注从一个结点到另一个结点的最短路径这一类问题，将它称为最短路径问题。&amp;emsp;&amp;emsp;关于最短路径和加权有向图，我们有几个性质需要说明。&amp;emsp;&amp;emsp;1.并非所有顶点都可达。&amp;emsp;&amp;emsp;2.负权重会使得问题更加复杂。&amp;emsp;&amp;emsp;3.最短路径通常是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法第四版：图论（4）- 加权有向图">
+<meta property="og:url" content="http://example.com/2021/09/01/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%884%EF%BC%89-%E5%8A%A0%E6%9D%83%E6%9C%89%E5%90%91%E5%9B%BE/index.html">
 <meta property="og:site_name" content="The blog of Endless Void">
+<meta property="og:description" content="1. 加权有向图1.1. 最短路径问题&amp;emsp;&amp;emsp;加权有向图的边有了方向性，我们在这个模型下通常比较关注从一个结点到另一个结点的最短路径这一类问题，将它称为最短路径问题。&amp;emsp;&amp;emsp;关于最短路径和加权有向图，我们有几个性质需要说明。&amp;emsp;&amp;emsp;1.并非所有顶点都可达。&amp;emsp;&amp;emsp;2.负权重会使得问题更加复杂。&amp;emsp;&amp;emsp;3.最短路径通常是">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-01T02:19:30.000Z">
+<meta property="article:modified_time" content="2021-09-02T13:22:10.631Z">
 <meta property="article:author" content="Endless Void">
 <meta name="twitter:card" content="summary">
   
@@ -150,184 +154,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-算法第四版：图论（4）-加权有向图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      算法第四版：图论（4）- 加权有向图
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/09/01/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%884%EF%BC%89-%E5%8A%A0%E6%9D%83%E6%9C%89%E5%90%91%E5%9B%BE/" class="archive-article-date">
+
+        
+        <a href="/2021/09/01/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%884%EF%BC%89-%E5%8A%A0%E6%9D%83%E6%9C%89%E5%90%91%E5%9B%BE/" class="archive-article-date">
   	<time datetime="2021-09-01T02:19:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/09/01/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%884%EF%BC%89-%E5%8A%A0%E6%9D%83%E6%9C%89%E5%90%91%E5%9B%BE/">算法第四版：图论（4）- 加权有向图</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-加权有向图"><a href="#1-加权有向图" class="headerlink" title="1. 加权有向图"></a>1. 加权有向图</h1><h2 id="1-1-最短路径问题"><a href="#1-1-最短路径问题" class="headerlink" title="1.1. 最短路径问题"></a>1.1. 最短路径问题</h2><p>&emsp;&emsp;加权有向图的边有了方向性，我们在这个模型下通常比较关注从一个结点到另一个结点的最短路径这一类问题，将它称为最短路径问题。<br>&emsp;&emsp;关于最短路径和加权有向图，我们有几个性质需要说明。<br>&emsp;&emsp;1.并非所有顶点都可达。<br>&emsp;&emsp;2.负权重会使得问题更加复杂。<br>&emsp;&emsp;3.最短路径通常是简单的，我们的算法会忽略构成环的零权重边。<br>&emsp;&emsp;4.最短路径不一定唯一。<br>&emsp;&emsp;5.可能存在自环和平行边。<br>&emsp;&emsp;6.我们的算法最终计算结果会得到一个最短路径树SPT，包含从s出发所有可达的顶点。    </p>
+<h2 id="1-2-实现加权有向图"><a href="#1-2-实现加权有向图" class="headerlink" title="1.2. 实现加权有向图"></a>1.2. 实现加权有向图</h2><h3 id="1-2-1-实现加权有向边"><a href="#1-2-1-实现加权有向边" class="headerlink" title="1.2.1. 实现加权有向边"></a>1.2.1. 实现加权有向边</h3><p>&emsp;&emsp;要实现加权有向图，其实和之前的加权无向图相差不大，甚至更加简单。我们首先实现加权有向边。我们给它准备的接口如下，与无向的相差不大。  </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DirectedEdge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> v;	<span class="comment">//起点</span></span><br><span class="line">	<span class="keyword">int</span> w;	<span class="comment">//终点</span></span><br><span class="line">	<span class="keyword">double</span> weight;	<span class="comment">//权重</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">DirectedEdge</span>(<span class="keyword">int</span> v = <span class="number">0</span>, <span class="keyword">int</span> w = <span class="number">0</span>, <span class="keyword">double</span> weight = <span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">Getweight</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">from</span><span class="params">()</span></span>;	<span class="comment">//获得边的起点</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">to</span><span class="params">()</span></span>;	<span class="comment">//获得边的终点</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function">string <span class="title">toString</span><span class="params">()</span></span>;		<span class="comment">//字符串输出</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>接口实现为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">DirectedEdge::<span class="built_in">DirectedEdge</span>(<span class="keyword">int</span> v = <span class="number">0</span>, <span class="keyword">int</span> w = <span class="number">0</span>, <span class="keyword">double</span> weight = <span class="number">0.0</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;v = v;</span><br><span class="line">	<span class="keyword">this</span>-&gt;w = w;</span><br><span class="line">	<span class="keyword">this</span>-&gt;weight = weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">DirectedEdge::Getweight</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> weight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DirectedEdge::from</span><span class="params">()</span>	<span class="comment">//获得边的起点</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">DirectedEdge::to</span><span class="params">()</span>	<span class="comment">//获得边的终点</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> w;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">string <span class="title">DirectedEdge::toString</span><span class="params">()</span>		<span class="comment">//字符串输出</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str[<span class="number">50</span>];</span><br><span class="line">	<span class="built_in">sprintf</span>(str, <span class="string">&quot;%d-%d %.2f&quot;</span>, v, w, weight);</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">string</span>(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-2-实现加权有向图"><a href="#1-2-2-实现加权有向图" class="headerlink" title="1.2.2. 实现加权有向图"></a>1.2.2. 实现加权有向图</h3><p>&emsp;&emsp;大体上与加权无环图相同。接口和实现如下。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EdgeWeightedDigraph</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> V;	<span class="comment">//顶点数量</span></span><br><span class="line">	<span class="keyword">int</span> E;	<span class="comment">//边的数量</span></span><br><span class="line">	vector&lt;vector&lt;DirectedEdge&gt;&gt; adj;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">EdgeWeightedDigraph</span>(<span class="keyword">int</span> V);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">EdgeWeightedDigraph</span>(istream&amp; in);	<span class="comment">//输入流构造图</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(DirectedEdge e)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">GetV</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">GetE</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function">vector&lt;DirectedEdge&gt; <span class="title">edges</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function">vector&lt;DirectedEdge&gt; <span class="title">Getadj</span><span class="params">(<span class="keyword">int</span> v)</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">EdgeWeightedDigraph::<span class="built_in">EdgeWeightedDigraph</span>(<span class="keyword">int</span> V)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;V = V;</span><br><span class="line">	<span class="keyword">this</span>-&gt;E = <span class="number">0</span>;</span><br><span class="line">	adj.<span class="built_in">resize</span>(V);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">EdgeWeightedDigraph::<span class="built_in">EdgeWeightedDigraph</span>(istream&amp; in)	<span class="comment">//输入流构造图</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">int</span> tempV, tempE, v, w;</span><br><span class="line">	<span class="keyword">double</span> temp_weight;</span><br><span class="line">	in &gt;&gt; tempV &gt;&gt; tempE;</span><br><span class="line">	V = tempV;</span><br><span class="line">	E = tempE;</span><br><span class="line">	adj.<span class="built_in">resize</span>(tempV);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; tempE; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		in &gt;&gt; v &gt;&gt; w &gt;&gt; temp_weight;</span><br><span class="line">		<span class="built_in">addEdge</span>(<span class="built_in">DirectedEdge</span>(v, w, temp_weight));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EdgeWeightedDigraph::addEdge</span><span class="params">(DirectedEdge e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	adj[e.<span class="built_in">from</span>()].<span class="built_in">push_back</span>(e);</span><br><span class="line">	E++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">EdgeWeightedDigraph::GetV</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> V;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">EdgeWeightedDigraph::GetE</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> E;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">vector&lt;DirectedEdge&gt; <span class="title">EdgeWeightedDigraph::edges</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	vector&lt;DirectedEdge&gt; temp;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> w = <span class="number">0</span>; w &lt; V; w++)</span><br><span class="line">		<span class="keyword">for</span> (DirectedEdge e : <span class="built_in">Getadj</span>(w))</span><br><span class="line">			temp.<span class="built_in">push_back</span>(e);</span><br><span class="line">	<span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">vector&lt;DirectedEdge&gt; <span class="title">EdgeWeightedDigraph::Getadj</span><span class="params">(<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> adj[v];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="2-最短路径算法"><a href="#2-最短路径算法" class="headerlink" title="2. 最短路径算法"></a>2. 最短路径算法</h1><h2 id="2-1-理论准备"><a href="#2-1-理论准备" class="headerlink" title="2.1. 理论准备"></a>2.1. 理论准备</h2><h3 id="2-1-1-松弛"><a href="#2-1-1-松弛" class="headerlink" title="2.1.1. 松弛"></a>2.1.1. 松弛</h3><p>&emsp;&emsp;对于最短路径的数据结构，我们依然沿用之前的edgeTo，distTo的模式。我们把主要关注点放在一种新的基本操作即松弛上，它是我们后面算法的操作的基本单元之一。<br>&emsp;&emsp;松弛操作的具体内容是对一条边v→w，如果当前存放的起点到v的距离(distTo[v])加上v→w的权值小于起点到w的距离(distTo[w])，则替换之(distTo[w] = distTo[v] + e.Getweight())。核心代码如下。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(DirectedEdge e : G.<span class="built_in">Getadj</span>(v))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> w = e.<span class="built_in">to</span>();</span><br><span class="line">        <span class="keyword">if</span>(distTo[w] &gt; distTo[v] + e.<span class="built_in">Getweight</span>())</span><br><span class="line">        &#123;</span><br><span class="line">            distTo[w] = distTo[v] + e.<span class="built_in">Getweight</span>();</span><br><span class="line">            edgeTo[w] = e;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-1-2-最短路径的充要条件"><a href="#2-1-2-最短路径的充要条件" class="headerlink" title="2.1.2. 最短路径的充要条件"></a>2.1.2. 最短路径的充要条件</h3><p>&emsp;&emsp;在松弛操作的基础上，我们的算法理论基础是如下命题：对于一幅加权有向图，数据结构如上文所示。对于所有从起点s可达的点v，distTo[v]是从s到v的某条路径长度，不可达时值为无穷大。那么对于从v到w的任意一边e，distTo[w] &lt;= distTo[v] + e.Getweight()是这些边是最短路径的充要条件。<br>&emsp;&emsp;证明如下：<br>必要性：<br>&emsp;&emsp;如果全是最短路径，对于从v到w如果存在一边e，distTo[w] &gt; distTo[v] + e.Getweight()，那么显然与假设矛盾。<br>充分性：<br>&emsp;&emsp;假设有最短路径s→a→…→b→w。e1, e2, …,ek是对应两结点的某个边。现在有如下性质:<br>&emsp;&emsp;distTo[w] &lt;= distTo[b] + ek<br>&emsp;&emsp;…….<br>&emsp;&emsp;distTo[a] &lt;= distTo[s] + e1<br>&emsp;&emsp;其中distTo[s] = 0.0，所以求和后得到distTo[w] &lt;= 最短路径长度。而显然其又&gt;=最短路径长度，所以distTo[w]为最短路径长度。证毕。     </p>
+<h3 id="2-1-3-通用算法"><a href="#2-1-3-通用算法" class="headerlink" title="2.1.3 通用算法"></a>2.1.3 通用算法</h3><p>&emsp;&emsp;在以上充要条件的基础上，我们可以推导出一个通用的求最短路径的算法：将distTo[s] = 0.0，将其他的distTo[]初始化为无穷大。然后不断放松所有不满足充要条件的边，直到没有这样的边存在。其证明略。</p>
+<h2 id="2-2-Dijkstra算法"><a href="#2-2-Dijkstra算法" class="headerlink" title="2.2. Dijkstra算法"></a>2.2. Dijkstra算法</h2><p>&emsp;&emsp;这个算法与我们上一节的Prim算法又很多相似之处，它也会构造一棵树，是最短路径树。算法的原理是把起点加入树中，然后不断地把非树顶点中distTo[]最小的进行放松然后加入树中，直到所有顶点都在树中或者所有非树顶点的distTo[]都是无穷大。<br>证明：<br>&emsp;&emsp;对每个可达顶点v使用松弛时，都会使得它满足充要条件的局部distTo[w] &lt;= distTo[v] + e.Getweight()，这个松弛过程不会产生比distTo[v]更小的distTo[w],而由于按照最小顺序，所以后续松弛不可能再次改变distTo[v]。那么算法结束后，充要条件成立。<br>&emsp;&emsp;代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dijkstra</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	vector&lt;DirectedEdge&gt; edgeTo;</span><br><span class="line">	vector&lt;<span class="keyword">double</span>&gt; distTo;</span><br><span class="line">	IndexMinpq&lt;<span class="keyword">double</span>&gt;* pq;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Dijkstra</span>(EdgeWeightedDigraph G, <span class="keyword">int</span> s);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Dijkstra::<span class="built_in">Dijkstra</span>(EdgeWeightedDigraph G, <span class="keyword">int</span> s)</span><br><span class="line">&#123;</span><br><span class="line">	edgeTo.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	distTo.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	pq = <span class="keyword">new</span> IndexMinpq&lt;<span class="keyword">double</span>&gt;(G.<span class="built_in">GetV</span>());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; G.<span class="built_in">GetV</span>(); v++)</span><br><span class="line">	&#123;</span><br><span class="line">		distTo[v] = DBL_MAX;</span><br><span class="line">	&#125;</span><br><span class="line">	distTo[s] = <span class="number">0.0</span>;</span><br><span class="line">	pq-&gt;<span class="built_in">insert</span>(s, <span class="number">0.0</span>);</span><br><span class="line">	<span class="keyword">while</span> (!pq-&gt;<span class="built_in">isEmpty</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">relax</span>(G, pq-&gt;<span class="built_in">delMin</span>());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra::relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (DirectedEdge e : G.<span class="built_in">Getadj</span>(v))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> w = e.<span class="built_in">to</span>();</span><br><span class="line">		<span class="keyword">if</span> (distTo[w] &gt; distTo[v] + e.<span class="built_in">Getweight</span>())</span><br><span class="line">		&#123;</span><br><span class="line">			distTo[w] = distTo[v] + e.<span class="built_in">Getweight</span>();</span><br><span class="line">			edgeTo[w] = e;</span><br><span class="line">			<span class="keyword">if</span> (pq-&gt;<span class="built_in">contains</span>(w))</span><br><span class="line">				pq-&gt;<span class="built_in">change</span>(w, distTo[w]);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				pq-&gt;<span class="built_in">insert</span>(w, distTo[w]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;其算法，空间消耗与V成正比，时间消耗与ElogV成正比。</p>
+<h2 id="2-3-无环加权有向图的最短路径"><a href="#2-3-无环加权有向图的最短路径" class="headerlink" title="2.3. 无环加权有向图的最短路径"></a>2.3. 无环加权有向图的最短路径</h2><p>&emsp;&emsp;同样是放松边如果我们按照拓扑排序来放松顶点，同样也能达到效果。而且消耗时间与E+V成正比。证明同上，原理相同。代码绝大部分也与之相同，不同的部分只是把邮箱队列替换成了拓扑排序序列。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AcycliSP</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	vector&lt;DirectedEdge&gt; edgeTo;</span><br><span class="line">	vector&lt;<span class="keyword">double</span>&gt; distTo;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">AcycliSP</span>(EdgeWeightedDigraph G, <span class="keyword">int</span> s);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">AcycliSP::<span class="built_in">AcycliSP</span>(EdgeWeightedDigraph G, <span class="keyword">int</span> s)</span><br><span class="line">&#123;</span><br><span class="line">	edgeTo.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	distTo.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	<span class="function">Topological <span class="title">top</span><span class="params">(G)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> v : top.<span class="built_in">order</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">relax</span>(G, v);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AcycliSP::relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (DirectedEdge e : G.<span class="built_in">Getadj</span>(v))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> w = e.<span class="built_in">to</span>();</span><br><span class="line">		<span class="keyword">if</span> (distTo[w] &gt; distTo[v] + e.<span class="built_in">Getweight</span>())</span><br><span class="line">		&#123;</span><br><span class="line">			distTo[w] = distTo[v] + e.<span class="built_in">Getweight</span>();</span><br><span class="line">			edgeTo[w] = e;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<h2 id="2-4-并行任务调度问问题"><a href="#2-4-并行任务调度问问题" class="headerlink" title="2.4. 并行任务调度问问题"></a>2.4. 并行任务调度问问题</h2><p>&emsp;&emsp;并行任务调度问题，指一组任务被制定了优先级顺序和任务完成所需时间，需要求得最短的时间消耗的任务安排，处理器有多个。其解决方法为：将任务关系构造为一幅加权无环有向图（起点终点单独构造，每个任务开始和结束分别为一个顶点，二者间的边的权重为任务消耗时间，优先级限制变为一个0权重的边）。然后找到它的从起点到终点的最长路径，就是最佳安排，消耗的时间也是最短时间。<br>&emsp;&emsp;证明：<br>&emsp;&emsp;对于这情景，画好图的模型后，可以看出来图的走向，根据优先级关系限制画出来的图，每一个顶点的可达路径对应的累积权值实际上已经是这个顶点的任务开始时间的下限，在这个情况下，到达终点所用的最长时间（要满足所有任务都能被完成），就是最短耗时。而最长路径的算法在上面的基础上将数值曲取相反数relax方里面改比较符号就可以实现了。此处代码略。    </p>
+<h2 id="2-5-一般方法"><a href="#2-5-一般方法" class="headerlink" title="2.5. 一般方法"></a>2.5. 一般方法</h2><p>&emsp;&emsp;最短路径问题的一般解决办法是Bellman-Ford算法，在任意含有v个顶点的加权有向图中给定起点s，从s无法到达任何负权重环，那么，将distTo[s]初始化为0，其他为无穷大就可以任意顺序发送图的所有便边，重复v轮。代码十分的简洁。    其中由于每一次放松都会有很多点放松失效，只有上一个顶点被放松时改变了distTo[]值的，才会对其进行放松。我们用一个队列来装入改变了distTo的顶点。检测负权重环的原理与之前的相同，只要检测到放松v轮后还有点在队列中，则必定有换环。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BellmanFord</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	vector&lt;<span class="keyword">double</span>&gt; distTo;			<span class="comment">//从起点到某个顶点的路径长度</span></span><br><span class="line">	vector&lt;DirectedEdge&gt; edgeTo;	<span class="comment">//从起点到某个顶点的最后一条边</span></span><br><span class="line">	vector&lt;<span class="keyword">bool</span>&gt; onQ;				<span class="comment">//该顶点是否存在于队列中</span></span><br><span class="line">	queue&lt;<span class="keyword">int</span>&gt; Queue;				<span class="comment">//正在被放松的顶点</span></span><br><span class="line">	<span class="keyword">int</span> cost;						<span class="comment">//relax被调用的次数</span></span><br><span class="line">	vector&lt;DirectedEdge&gt; cycle;		<span class="comment">//edgeTo中是否有负权重环</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">findNegtiveCycle</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">BellmanFord</span>(EdgeWeightedDigraph G, <span class="keyword">int</span> s);</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">hasNegativeCycle</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function">vector&lt;DirectedEdge&gt; <span class="title">negativeCycle</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BellmanFord::<span class="built_in">BellmanFord</span>(EdgeWeightedDigraph G, <span class="keyword">int</span> s)</span><br><span class="line">&#123;</span><br><span class="line">	distTo.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	edgeTo.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	onQ.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; G.<span class="built_in">GetV</span>(); v++)</span><br><span class="line">	&#123;</span><br><span class="line">		distTo[v] = DBL_MAX;</span><br><span class="line">	&#125;</span><br><span class="line">	distTo[<span class="number">0</span>] = <span class="number">0.0</span>;</span><br><span class="line">	Queue.<span class="built_in">push</span>(s);</span><br><span class="line">	onQ[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">	edgeTo[s] = null;</span><br><span class="line">	<span class="keyword">while</span> (!Queue.<span class="built_in">empty</span>() &amp;&amp; !<span class="built_in">hasNegativeCycle</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> v = Queue.<span class="built_in">front</span>();</span><br><span class="line">		Queue.<span class="built_in">pop</span>();</span><br><span class="line">		onQ[v] = <span class="literal">false</span>;</span><br><span class="line">		<span class="built_in">relax</span>(G, v);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BellmanFord::relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (DirectedEdge e : G.<span class="built_in">Getadj</span>(v))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> w = e.<span class="built_in">to</span>();</span><br><span class="line">		<span class="keyword">if</span> (distTo[w] &gt; distTo[v] + e.<span class="built_in">Getweight</span>())</span><br><span class="line">		&#123;</span><br><span class="line">			distTo[w] = distTo[v] + e.<span class="built_in">Getweight</span>();</span><br><span class="line">			edgeTo[w] = e;</span><br><span class="line">			<span class="keyword">if</span> (!onQ[w])</span><br><span class="line">			&#123;</span><br><span class="line">				Queue.<span class="built_in">push</span>(w);</span><br><span class="line">				onQ[w] = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (cost++ % G.<span class="built_in">GetV</span>() == <span class="number">0</span>)</span><br><span class="line">		<span class="built_in">findNegtiveCycle</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BellmanFord::findNegtiveCycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> V = edgeTo.<span class="built_in">size</span>();</span><br><span class="line">	<span class="function">EdgeWeightedDigraph <span class="title">spt</span><span class="params">(V)</span></span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; V; v++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (edgeTo[v] != null)</span><br><span class="line">		&#123;</span><br><span class="line">			spt.<span class="built_in">addEdge</span>(edgeTo[v]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function">EdgeWeightedCycleFinder <span class="title">cf</span><span class="params">(spt)</span></span>;</span><br><span class="line">		cycle = cf.<span class="built_in">cycle</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">BellmanFord::hasNegativeCycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (cycle.<span class="built_in">size</span>() != <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">vector&lt;DirectedEdge&gt; <span class="title">BellmanFord::negativeCycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> cycle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/09/01/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%884%EF%BC%89-%E5%8A%A0%E6%9D%83%E6%9C%89%E5%90%91%E5%9B%BE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/28/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%883%EF%BC%89%E2%80%94%E5%8A%A0%E6%9D%83%E6%97%A0%E5%90%91%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2021-08-28T01:43:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/08/28/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%883%EF%BC%89%E2%80%94%E5%8A%A0%E6%9D%83%E6%97%A0%E5%90%91%E5%9B%BE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法第四版：图论（3）—加权无向图</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/28/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%883%EF%BC%89%E2%80%94%E5%8A%A0%E6%9D%83%E6%97%A0%E5%90%91%E5%9B%BE/">算法第四版：图论（3）—加权无向图</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/27/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%882%EF%BC%89%E2%80%94%E6%9C%89%E5%90%91%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2021-08-27T00:34:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/27/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%882%EF%BC%89%E2%80%94%E6%9C%89%E5%90%91%E5%9B%BE/">算法第四版：图论（2）—有向图</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/25/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%881%EF%BC%89-%E6%97%A0%E5%90%91%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2021-08-25T08:59:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/25/%E7%AE%97%E6%B3%95%E7%AC%AC%E5%9B%9B%E7%89%88%EF%BC%9A%E5%9B%BE%E8%AE%BA%EF%BC%881%EF%BC%89-%E6%97%A0%E5%90%91%E5%9B%BE/">算法第四版：图论（1）-无向图</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/21/test-blog/" class="archive-article-date">
-  	<time datetime="2021-08-21T12:22:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/21/test-blog/">test blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/21/hello-world/" class="archive-article-date">
-  	<time datetime="2021-08-21T12:15:14.412Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/21/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -350,8 +346,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
