@@ -50,7 +50,7 @@
 			<img src="https://avatars.githubusercontent.com/u/52157321?v=4" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Endless Void</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
 
@@ -66,7 +66,7 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文�?</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
     			
@@ -74,7 +74,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于�?</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -108,7 +108,7 @@
 				<img src="https://avatars.githubusercontent.com/u/52157321?v=4" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Endless Void</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
@@ -200,27 +200,6 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BellmanFord</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	vector&lt;<span class="keyword">double</span>&gt; distTo;			<span class="comment">//从起点到某个顶点的路径长度</span></span><br><span class="line">	vector&lt;DirectedEdge&gt; edgeTo;	<span class="comment">//从起点到某个顶点的最后一条边</span></span><br><span class="line">	vector&lt;<span class="keyword">bool</span>&gt; onQ;				<span class="comment">//该顶点是否存在于队列中</span></span><br><span class="line">	queue&lt;<span class="keyword">int</span>&gt; Queue;				<span class="comment">//正在被放松的顶点</span></span><br><span class="line">	<span class="keyword">int</span> cost;						<span class="comment">//relax被调用的次数</span></span><br><span class="line">	vector&lt;DirectedEdge&gt; cycle;		<span class="comment">//edgeTo中是否有负权重环</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">findNegtiveCycle</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">BellmanFord</span>(EdgeWeightedDigraph G, <span class="keyword">int</span> s);</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">hasNegativeCycle</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function">vector&lt;DirectedEdge&gt; <span class="title">negativeCycle</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BellmanFord::<span class="built_in">BellmanFord</span>(EdgeWeightedDigraph G, <span class="keyword">int</span> s)</span><br><span class="line">&#123;</span><br><span class="line">	distTo.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	edgeTo.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	onQ.<span class="built_in">resize</span>(G.<span class="built_in">GetV</span>());</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; G.<span class="built_in">GetV</span>(); v++)</span><br><span class="line">	&#123;</span><br><span class="line">		distTo[v] = DBL_MAX;</span><br><span class="line">	&#125;</span><br><span class="line">	distTo[<span class="number">0</span>] = <span class="number">0.0</span>;</span><br><span class="line">	Queue.<span class="built_in">push</span>(s);</span><br><span class="line">	onQ[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">	edgeTo[s] = null;</span><br><span class="line">	<span class="keyword">while</span> (!Queue.<span class="built_in">empty</span>() &amp;&amp; !<span class="built_in">hasNegativeCycle</span>())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> v = Queue.<span class="built_in">front</span>();</span><br><span class="line">		Queue.<span class="built_in">pop</span>();</span><br><span class="line">		onQ[v] = <span class="literal">false</span>;</span><br><span class="line">		<span class="built_in">relax</span>(G, v);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BellmanFord::relax</span><span class="params">(EdgeWeightedDigraph G, <span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (DirectedEdge e : G.<span class="built_in">Getadj</span>(v))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> w = e.<span class="built_in">to</span>();</span><br><span class="line">		<span class="keyword">if</span> (distTo[w] &gt; distTo[v] + e.<span class="built_in">Getweight</span>())</span><br><span class="line">		&#123;</span><br><span class="line">			distTo[w] = distTo[v] + e.<span class="built_in">Getweight</span>();</span><br><span class="line">			edgeTo[w] = e;</span><br><span class="line">			<span class="keyword">if</span> (!onQ[w])</span><br><span class="line">			&#123;</span><br><span class="line">				Queue.<span class="built_in">push</span>(w);</span><br><span class="line">				onQ[w] = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (cost++ % G.<span class="built_in">GetV</span>() == <span class="number">0</span>)</span><br><span class="line">		<span class="built_in">findNegtiveCycle</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BellmanFord::findNegtiveCycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> V = edgeTo.<span class="built_in">size</span>();</span><br><span class="line">	<span class="function">EdgeWeightedDigraph <span class="title">spt</span><span class="params">(V)</span></span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; V; v++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (edgeTo[v] != null)</span><br><span class="line">		&#123;</span><br><span class="line">			spt.<span class="built_in">addEdge</span>(edgeTo[v]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function">EdgeWeightedCycleFinder <span class="title">cf</span><span class="params">(spt)</span></span></span><br><span class="line"><span class="function">		cycle </span>= cf.<span class="built_in">cycle</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">BellmanFord::hasNegativeCycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (cycle.<span class="built_in">size</span>() != <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">vector&lt;DirectedEdge&gt; <span class="title">BellmanFord::negativeCycle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> cycle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你�?�我吃糖�?<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -419,7 +398,7 @@ MathJax.Hub.Queue(function() {
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文�?</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
@@ -427,7 +406,7 @@ MathJax.Hub.Queue(function() {
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于�?</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -496,7 +475,7 @@ MathJax.Hub.Queue(function() {
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://yuioasis.xyz" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>技�?大�??</a>
+              <a href="https://yuioasis.xyz" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>技术大神</a>
             </li>
           
         </ul>
@@ -507,7 +486,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭�?&lt;br&gt;&lt;br&gt;�?做了一点微小的工作&lt;br&gt;谢谢大�??</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">查无此人</div>
   	  	
     	</section>
     
